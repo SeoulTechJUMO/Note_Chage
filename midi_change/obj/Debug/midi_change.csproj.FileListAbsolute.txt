@@ -1,0 +1,14 @@
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.csprojAssemblyReference.cache
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.Form1.resources
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.Properties.Resources.resources
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.csproj.GenerateResource.cache
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.csproj.CoreCompileInputs.cache
+D:\Desktop\note변환\midi_change\midi_change\bin\Debug\midi_change.exe.config
+D:\Desktop\note변환\midi_change\midi_change\bin\Debug\midi_change.exe
+D:\Desktop\note변환\midi_change\midi_change\bin\Debug\midi_change.pdb
+D:\Desktop\note변환\midi_change\midi_change\bin\Debug\Sanford.Multimedia.Midi.dll
+D:\Desktop\note변환\midi_change\midi_change\bin\Debug\Sanford.Multimedia.Midi.pdb
+D:\Desktop\note변환\midi_change\midi_change\bin\Debug\Sanford.Multimedia.Midi.xml
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.csproj.CopyComplete
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.exe
+D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.pdb
