@@ -103,7 +103,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Make_note.cs" />
-    <Compile Include="Note.cs" />
     <Compile Include="Layouts\PluginEditorWindow.xaml.cs">
       <DependentUpon>PluginEditorWindow.xaml</DependentUpon>
     </Compile>

@@ -77,5 +77,13 @@ namespace JUMO
             UpdateLength();
             NotePropertyChanged?.Invoke(this, EventArgs.Empty);
         }
+
+        private void Test()
+        {
+            foreach (Note note in this)
+            {
+                System.Diagnostics.Debug.WriteLine($"Start = {note.Start}, Length = {note.Length}");
+            }
+        }
     }
 }
