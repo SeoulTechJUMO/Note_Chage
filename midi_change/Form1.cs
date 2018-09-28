@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sanford.Multimedia.Midi;
+
+
 namespace midi_change
 {
     public partial class Form1 : Form
@@ -19,6 +21,11 @@ namespace midi_change
 
         string fileName;
         Sequence sequence1 = new Sequence();
+        Sequencer sequencer1 = new Sequencer();
+        int outDeviceID = 0;
+        OutputDevice outDevice;        
+        //OutputStream outputStream = new OutputStream();
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -32,6 +39,8 @@ namespace midi_change
 
         }
 
+
+
         private void Sequence1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
             Set_Sequence(sequence1);
@@ -41,6 +50,25 @@ namespace midi_change
         {
             Make_note mk = new Make_note();
             mk.Get_Sequence(sq);
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            outDevice = new OutputDevice(outDeviceID);
+            sequencer1.Position = 0;
+            sequencer1.Sequence = sequence1;
+            sequencer1.ChannelMessagePlayed += new EventHandler<ChannelMessageEventArgs>(HandleCnannelMessagePlayed);
+            sequencer1.Start();           
+        }
+
+        private void HandleSysExMessagePlayed(object sender, SysExMessageEventArgs e)
+        {
+        }
+
+        private void HandleCnannelMessagePlayed(object sender, ChannelMessageEventArgs e)
+        {
+            outDevice.Send(e.Message);
         }
     }
 }

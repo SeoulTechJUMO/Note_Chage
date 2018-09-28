@@ -1,0 +1,76 @@
+﻿<local:SelectableView
+    x:Class="JUMO.UI.Views.NoteView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:JUMO.UI.Views"
+    mc:Ignorable="d"
+    d:DesignHeight="20" d:DesignWidth="240">
+    <UserControl.Resources>
+        <Style TargetType="Thumb">
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Rectangle Fill="Transparent" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="3">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="SelectionStates">
+                <VisualState x:Name="Selected">
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetName="NoteBackgroundBrush"
+                                        Storyboard.TargetProperty="Color"
+                                        To="Orange"
+                                        Duration="0:0:0" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Unselected" />
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Border.Background>
+            <SolidColorBrush x:Name="NoteBackgroundBrush" Color="MediumSpringGreen" />
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="5" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                       Text="{Binding Value, FallbackValue=C4}"
+                       FontFamily="Segoe UI"
+                       FontSize="10"
+                       Margin="3,1,0,0" />
+            <Thumb Grid.Column="0"
+                   DragStarted="NoteButton_DragStarted"
+                   DragCompleted="NoteButton_DragCompleted"
+                   DragDelta="NoteButton_DragDelta"
+                   PreviewMouseLeftButtonDown="NoteButton_MouseLeftButtonDown"
+                   PreviewMouseRightButtonDown="NoteButton_MouseRightButtonDown"
+                   Cursor="Hand" />
+            <Thumb Grid.Column="1"
+                   DragStarted="ResizeHandle_DragStarted"
+                   DragCompleted="ResizeHandle_DragCompleted"
+                   DragDelta="ResizeHandle_DragDelta"
+                   Cursor="SizeWE" />
+            <Border Grid.ColumnSpan="2" BorderThickness="2,1" IsHitTestVisible="False">
+                <Rectangle Height="2"
+                           IsHitTestVisible="False"
+                           VerticalAlignment="Bottom"
+                           Fill="#7f000000">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.007874" />
+                            <ScaleTransform ScaleX="{Binding Velocity, FallbackValue=100}" />
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </Border>
+        </Grid>
+    </Border>
+</local:SelectableView>

@@ -12,3 +12,17 @@ D:\Desktop\note변환\midi_change\midi_change\bin\Debug\Sanford.Multimedia.Midi.
 D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.csproj.CopyComplete
 D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.exe
 D:\Desktop\note변환\midi_change\midi_change\obj\Debug\midi_change.pdb
+D:\Desktop\GIT\Note_Chage\midi_change\bin\Debug\midi_change.exe.config
+D:\Desktop\GIT\Note_Chage\midi_change\bin\Debug\midi_change.exe
+D:\Desktop\GIT\Note_Chage\midi_change\bin\Debug\midi_change.pdb
+D:\Desktop\GIT\Note_Chage\midi_change\bin\Debug\Sanford.Multimedia.Midi.dll
+D:\Desktop\GIT\Note_Chage\midi_change\bin\Debug\Sanford.Multimedia.Midi.pdb
+D:\Desktop\GIT\Note_Chage\midi_change\bin\Debug\Sanford.Multimedia.Midi.xml
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.csprojAssemblyReference.cache
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.Form1.resources
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.Properties.Resources.resources
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.csproj.GenerateResource.cache
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.csproj.CoreCompileInputs.cache
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.csproj.CopyComplete
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.exe
+D:\Desktop\GIT\Note_Chage\midi_change\obj\Debug\midi_change.pdb

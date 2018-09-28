@@ -1,0 +1,131 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:JUMO.UI"
+    xmlns:view="clr-namespace:JUMO.UI.Views"
+    xmlns:ctrl="clr-namespace:JUMO.UI.Controls">
+    <Style TargetType="{x:Type ctrl:NumericUpDown}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrl:NumericUpDown}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+                                Grid.RowSpan="2"
+                                IsReadOnly="True"
+                                HorizontalContentAlignment="Right"
+                                VerticalContentAlignment="Center"
+                                Text="{Binding Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrl:NumericUpDown}}}" />
+                            <RepeatButton Name="UpButton" Grid.Row="0" Grid.Column="1" Padding="5,3">
+                                <RepeatButton.Content>
+                                    <Path Width="6" Height="3" SnapsToDevicePixels="True" Data="M 3 0 L 6 3 L 0 3" Fill="Black" />
+                                </RepeatButton.Content>
+                            </RepeatButton>
+                            <RepeatButton Name="DownButton" Grid.Row="1" Grid.Column="1" Padding="5,3">
+                                <RepeatButton.Content>
+                                    <Path Width="6" Height="3" SnapsToDevicePixels="True" Data="M 0 0 L 6 0 L 3 3" Fill="Black" />
+                                </RepeatButton.Content>
+                            </RepeatButton>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:PianoRollKeyboard}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrl:PianoRollKeyboard}">
+                    <ControlTemplate.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="PianoRollKeyStyle" TargetType="Button">
+                                <Setter Property="MinHeight" Value="20" />
+                                <Setter Property="MaxHeight" Value="20" />
+                                <Setter Property="Height" Value="20" />
+                                <Setter Property="BorderThickness" Value="0,1,0,0" />
+                                <Setter Property="HorizontalContentAlignment" Value="Right" />
+                                <Setter Property="Padding" Value="5,0" />
+                                <Setter Property="Background" Value="WhiteSmoke" />
+                            </Style>
+                            <Style x:Key="PianoRollBlackKeyStyle" TargetType="Button" BasedOn="{StaticResource PianoRollKeyStyle}">
+                                <Setter Property="Background" Value="DarkGray" />
+                            </Style>
+                        </ResourceDictionary>
+                    </ControlTemplate.Resources>
+                    <StackPanel x:Name="ButtonContainer" Width="100" Orientation="Vertical" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:MusicalScrollViewer}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrl:MusicalScrollViewer}">
+                    <Grid x:Name="Grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <ScrollBar x:Name="PART_HorizontalScrollBar"
+                                   Grid.Row="0" Grid.Column="0"
+                                   Orientation="Horizontal"
+                                   Value="{TemplateBinding HorizontalOffset}"
+                                   Maximum="{TemplateBinding ScrollableWidth}"
+                                   ViewportSize="{TemplateBinding ViewportWidth}"
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
+                        <Rectangle Grid.Row="0" Grid.Column="1"
+                                   Fill="{x:Static SystemColors.ControlBrush}" />
+                        <ctrl:BarIndicator Grid.Row="1" Grid.Column="0"
+                                           ClipToBounds="True"
+                                           BarGridBrush="{TemplateBinding BarGridBrush}"
+                                           BarGridThickness="{TemplateBinding BarGridThickness}"
+                                           ScrollOffset="{TemplateBinding HorizontalOffset}"
+                                           Background="{x:Static SystemColors.ControlBrush}"
+                                           Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                           Height="{x:Static SystemParameters.HorizontalScrollBarHeight}" />
+                        <ScrollBar x:Name="PART_VerticalScrollBar"
+                                   Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                                   Orientation="Vertical"
+                                   Value="{TemplateBinding VerticalOffset}"
+                                   Maximum="{TemplateBinding ScrollableHeight}"
+                                   ViewportSize="{TemplateBinding ViewportHeight}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                        <ctrl:MusicalGrid Grid.Row="2" Grid.Column="0"
+                                          ClipToBounds="True"
+                                          SmallGridBrush="{TemplateBinding SmallGridBrush}"
+                                          BeatGridBrush="{TemplateBinding BeatGridBrush}"
+                                          BarGridBrush="{TemplateBinding BarGridBrush}"
+                                          BarGridThickness="{TemplateBinding BarGridThickness}"
+                                          HorizontalOffset="{TemplateBinding HorizontalOffset}"
+                                          VerticalOffset="{TemplateBinding VerticalOffset}"
+                                          GridStep="{TemplateBinding GridStep}"
+                                          GridHeight="{TemplateBinding GridHeight}"
+                                          ShouldDrawHorizontalGrid="{TemplateBinding ShouldDrawHorizontalGrid}" />
+                        <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                                Grid.Row="2" Grid.Column="0"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                Content="{TemplateBinding Content}"
+                                                CanContentScroll="{TemplateBinding CanContentScroll}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
